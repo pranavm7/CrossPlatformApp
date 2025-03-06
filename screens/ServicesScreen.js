@@ -5,8 +5,8 @@ return (
 <View style={styles.container}>
 <Text style={styles.title}>Our Services</Text>
 <Text style={styles.description}>
-Free shipping on orders over $50! {"\n"}
-24/7 customer support! {"\n"}
+Free shipping on orders over $40! Expedited shipping available at low prices. {"\n"}
+24/7 customer support! Contact information available on the COntact Us page.{"\n"}
 Free returns up to 30 days after date of purchase! {"\n"}
 Free order tracking! Simply use the order tracking number provided with every order.
 </Text>
