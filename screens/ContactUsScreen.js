@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Card, Title, Paragraph, TextInput, Button, Provider as PaperProvider } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form';
 
 const employees = [
-  { name: "John Doe", position: "Customer Support", email: "john@example.com" },
-  { name: "Jane Smith", position: "Technical Lead", email: "jane@example.com" },
-  { name: "Michael Brown", position: "Sales Manager", email: "michael@example.com" }
+  { name: "Pranav Mahajan", position: "CTO", email: "hooperts@ucmail.uc.ed" },
+  { name: "Thomas Hooper", position: "CEO", email: "mahajapp@ucmail.uc.edu" },
+  { name: "Ravi Patel", position: "COO", email: "patel6rv@ucmail.uc.edu" }
 ];
 
 const ContactUsScreen = () => {
@@ -24,7 +24,7 @@ const ContactUsScreen = () => {
           name: '',
           email: '',
           subject: ''
-        }); // Ensures all fields are fully cleared
+        }); 
       };
 
     return (
