@@ -3,19 +3,15 @@ import { View, Text, Button, StyleSheet, Image } from 'react-native';
 export default function ServicesScreen({ navigation }) {
 return (
 <View style={styles.container}>
-<Text style={styles.title}>Welcome to SmartGadget Hub</Text>
+<Text style={styles.title}>Our Services</Text>
 <Text style={styles.description}>
-Discover the latest and most innovative gadgets that enhance your daily life.
-Our products include smart home devices, wearable tech, and AI-powered assistants.
+Free shipping on orders over $40! Expedited shipping available at low prices. {"\n"}
+24/7 customer support! Contact information available on the Contact Us page.{"\n"}
+Free returns up to 30 days after date of purchase! {"\n"}
+Free order tracking! Simply use the order tracking number provided with every order.
 </Text>
-<Text style={styles.description}>
-We invite you to visit our booth at the SoIT 2025 IT Expo -
-<Text style={{ color: 'blue' }}> https://cech.uc.edu/soitexpo.html</Text>
-</Text>
-<Button title="About Us" onPress={() => navigation.navigate('About Us')} />
-<Button title="Contact Us" onPress={() => navigation.navigate('Contact Us')} />
-<Button title="Our Services" onPress={() => navigation.navigate('Our Services')} />
-<Button title="Make a Payment" onPress={() => navigation.navigate('Payment')} />
+
+<Button title="Go Back" onPress={() => navigation.goBack()} />
 </View>
 );
 } // **Close the component function before defining styles**
