@@ -1,15 +1,15 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Card, Title, Paragraph, TextInput, Button, Provider as PaperProvider } from 'react-native-paper';
+import { Card, Title, Paragraph, TextInput, DefaultTheme, Button, Provider as PaperProvider } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form';
 
 const employees = [
-  { name: "Pranav Mahajan", position: "CTO", email: "hooperts@ucmail.uc.ed" },
-  { name: "Thomas Hooper", position: "CEO", email: "mahajapp@ucmail.uc.edu" },
-  { name: "Ravi Patel", position: "COO", email: "patel6rv@ucmail.uc.edu" }
+  { name: "Thomas Hooper", position: "CEO", email: "hooperts@ucmail.uc.edu" },
+  { name: "Pranav Mahajan", position: "COO", email: "mahajapp@ucmail.uc.edu" },
+  { name: "Ravi Patel", position: "Lead Designer", email: "patel6rv@ucmail.uc.edu" }
 ];
 
-const ContactUsScreen = () => {
+const ContactUsScreen = ({navigation}) => {
     const { control, handleSubmit, reset } = useForm({
       defaultValues: {
         name: '',
@@ -17,6 +17,17 @@ const ContactUsScreen = () => {
         subject: ''
       }
     });
+
+    
+  const theme = {
+    ...DefaultTheme,
+    text: '#000000',
+    colors: {
+      ...DefaultTheme.colors,
+      text: '#000000',
+      placeholder: '#000000',
+    },
+  };
   
     const onSubmit = (data) => {
         console.log("Form Data:", data);
@@ -28,11 +39,11 @@ const ContactUsScreen = () => {
       };
 
     return (
-    <PaperProvider>
+    <PaperProvider theme={theme}>
       <ScrollView style={{ padding: 16 }}>
         {/* Employee Cards */}
         {employees.map((employee, index) => (
-          <Card key={index} style={{ marginBottom: 16 }}>
+          <Card key={index} style={{ marginBottom: 16,backgroundColor: '#8bc7f9' }} >
             <Card.Content>
               <Title>{employee.name}</Title>
               <Paragraph>{employee.position}</Paragraph>
@@ -42,7 +53,7 @@ const ContactUsScreen = () => {
         ))}
 
         {/* Contact Form */}
-        <Card>
+        <Card style={{ backgroundColor: '#8bc7f9' }}>
           <Card.Content>
             <Title>Contact Us</Title>
             <Controller
@@ -88,8 +99,11 @@ const ContactUsScreen = () => {
                 />
               )}
             />
-            <Button mode="contained" onPress={handleSubmit(onSubmit)}>
+            <Button mode="contained" onPress={handleSubmit(onSubmit)} style={{ backgroundColor: '#2196f3' }}>
               Submit
+            </Button>
+            <Button mode="contained" style={{ marginTop: 16,backgroundColor: '#2196f3' }} onPress={() => navigation.goBack()}>
+              Go Back
             </Button>
           </Card.Content>
         </Card>

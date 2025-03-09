@@ -1,9 +1,9 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Card, Title, Paragraph, RadioButton, TextInput, Button, Provider as PaperProvider } from 'react-native-paper';
+import { Card, Title, Paragraph, RadioButton, TextInput, Button, DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form';
 
-const PaymentScreen = () => {
+const PaymentScreen = ({navigation}) => {
   const { control, handleSubmit, watch, setValue } = useForm({
     defaultValues: {
       paymentMethod: 'credit_card',
@@ -13,6 +13,16 @@ const PaymentScreen = () => {
     }
   });
 
+  const theme = {
+  ...DefaultTheme,
+  text: '#000000',
+  colors: {
+    ...DefaultTheme.colors,
+    text: '#000000',
+    placeholder: '#000000',
+  },
+};
+
   const selectedMethod = watch("paymentMethod");
 
   const onSubmit = (data) => {
@@ -20,10 +30,10 @@ const PaymentScreen = () => {
   };
 
   return (
-    <PaperProvider>
+    <PaperProvider theme={theme}>
       <ScrollView style={{ padding: 16 }}>
         {/* Payment Options */}
-        <Card style={{ marginBottom: 16 }}>
+        <Card style={{ marginBottom: 16,backgroundColor: '#8bc7f9',color:'#000000',text:'#000000' }}>
           <Card.Content>
             <Title>Payment Options</Title>
             <Paragraph>Select a payment method:</Paragraph>
@@ -41,7 +51,7 @@ const PaymentScreen = () => {
 
         {/* Payment Form */}
         {selectedMethod === 'credit_card' && (
-          <Card>
+          <Card style={{ backgroundColor: '#8bc7f9',color:'#000000',text:'#000000' }}>
             <Card.Content>
               <Title>Credit Card Details</Title>
               <Controller
@@ -91,8 +101,7 @@ const PaymentScreen = () => {
           </Card>
         )}
 
-        {/* Payment Instructions */}
-        <Card style={{ marginTop: 16 }}>
+        <Card style={{ marginTop: 16,backgroundColor: '#8bc7f9',color:'#000000' }}>
           <Card.Content>
             <Title>Payment Instructions</Title>
             <Paragraph>
@@ -106,9 +115,12 @@ const PaymentScreen = () => {
         </Card>
 
         {/* Submit Button */}
-        <Button mode="contained" style={{ marginTop: 16 }} onPress={handleSubmit(onSubmit)}>
+        <Button mode="contained" style={{ marginTop: 16,backgroundColor: '#2196f3',color:'#000000' }} onPress={handleSubmit(onSubmit)}>
           Pay Now
         </Button>
+      <Button mode="contained" style={{ marginTop: 16,backgroundColor: '#2196f3',color:'#000000' }} onPress={() => navigation.goBack()}>
+        Go Back
+      </Button>
       </ScrollView>
     </PaperProvider>
   );
