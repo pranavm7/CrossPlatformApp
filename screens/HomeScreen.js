@@ -3,14 +3,11 @@ import { View, Text, Button, StyleSheet, Image } from 'react-native';
 export default function HomeScreen({ navigation }) {
 return (
 <View style={styles.container}>
-<Text style={styles.title}>Welcome to SmartGadget Hub</Text>
+<Text style={styles.title}>Welcome to Fit Check</Text>
 <Text style={styles.description}>
-Discover the latest and most innovative gadgets that enhance your daily life.
-Our products include smart home devices, wearable tech, and AI-powered assistants.
-</Text>
-<Text style={styles.description}>
-We invite you to visit our booth at the SoIT 2025 IT Expo -
-<Text style={{ color: 'blue' }}> https://cech.uc.edu/soitexpo.html</Text>
+Discover and purhase the latest and fashion trends and clothes to upgrade your looks. {'\n'}
+Fit Check is an online retailer where you can meet all your clothing needs. {'\n'}
+Our products include hoodies, pants, shirts, shoes, and more. {'\n'}
 </Text>
 <Button title="About Us" onPress={() => navigation.navigate('About Us')} />
 <Button title="Contact Us" onPress={() => navigation.navigate('Contact Us')} />
